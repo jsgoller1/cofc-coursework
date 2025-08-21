@@ -2,7 +2,7 @@ JAVA:=/opt/homebrew/opt/openjdk/bin/java
 JAVAC:=/opt/homebrew/opt/openjdk/bin/javac
 BIN_DIR:=bin/
 
-.PHONY: 1_7
+.PHONY: 1_7 2_11
 
 clean:
 	reset
@@ -16,3 +16,7 @@ hello_world: clean
 1_7: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) IntroToDSELabs
+
+2_11: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) BinarySearch
