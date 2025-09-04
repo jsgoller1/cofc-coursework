@@ -2,8 +2,8 @@ JAVA:=/opt/homebrew/opt/openjdk/bin/java
 JAVAC:=/opt/homebrew/opt/openjdk/bin/javac
 BIN_DIR:=bin/
 
-.PHONY: 1_7 2_11
-
+.PHONY: 1_7 2_11 natural_mergesort
+ 
 clean:
 	reset
 	-rm -r $(BIN_DIR)
@@ -20,3 +20,11 @@ hello_world: clean
 2_11: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) BinarySearch
+
+sorting_algos: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) Sorter
+
+natural_mergesort: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) NaturalMerge
