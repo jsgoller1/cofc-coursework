@@ -1,6 +1,3 @@
-package natural_mergesort;
-
-
 import java.io.PrintWriter;
 import java.util.Arrays;
 

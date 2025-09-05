@@ -1,6 +1,6 @@
-package natural_mergesort;
-
 public class NaturalMergeSorter {
+    public int mergeCalls = 0;
+
     public int getSortedRunLength(int[] array, int arrayLength, int startIndex) {
         /*
          * The method returns the number of array elements sorted in ascending order, starting at
@@ -17,40 +17,32 @@ public class NaturalMergeSorter {
             curr += 1;
         }
         return countSorted;
-
     }
 
     public void naturalMergeSort(int[] array, int arrayLength) {
-        String doc =
-                """
-                        * 1. Start at index i=0
-                        * 2. Get the length of the first sorted run, starting at i
-                        *  - Return if the first run's length equals the array length
-                        *  - If the first run ends at the array's end, reassign i=0 and repeat step 2
-                        * 3. Get the length of the second sorted run, starting immediately after the first
-                        * 4. Merge the two runs with the provided merge() method
-                        * 5. Reassign i with the first index after the second run, or 0 if the second run ends at the array's end
-                        * Go to step 2
-                        */
-                        """;
-
         while (getSortedRunLength(array, arrayLength, 0) < arrayLength) {
             for (int i = 0; i < arrayLength;) {
-                /*
-                 * for (int j = 0; j < arrayLength; j += 1) { System.out.printf("%d ", array[i]); }
-                 * System.out.println();
-                 */
-
                 int leftLen = getSortedRunLength(array, arrayLength, i);
                 int rightLen = getSortedRunLength(array, arrayLength, i + leftLen);
                 if (rightLen > 0) {
+                    System.out.printf(
+                            "merge()\n\ti=%d, leftLen=%d, rightLen=%d\n\ti + leftLen - 1=%d\n\ti + leftLen + rightLen - 1=%d\n",
+                            i, leftLen, rightLen, i + leftLen - 1, i + leftLen + rightLen - 1);
                     merge(array, i, i + leftLen - 1, i + leftLen + rightLen - 1);
-                    i = rightLen + 1;
+                    i = i + leftLen + rightLen;
+                    mergeCalls++;
+
+                    System.out.printf("\tPost-merge:\n\t");
+                    for (int k = 0; k < arrayLength; k++) {
+                        System.out.printf(" %d", array[k]);
+                    }
+                    System.out.println();
                 } else {
                     break;
                 }
             }
         }
+        System.out.printf("Merge calls: %d\n", mergeCalls);
         return;
     }
 

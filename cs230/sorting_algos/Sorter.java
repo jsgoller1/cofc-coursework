@@ -34,6 +34,10 @@ public class Sorter {
 
     public static <T extends Comparable<T>> void insertionSort(T[] items) {}
 
+    public static <T extends Comparable<T>> void quicksortHoare(T[] items) {}
+
+    public static <T extends Comparable<T>> void quicksortLomuto(T[] items) {}
+
     public static <T extends Comparable<T>> void radixSort(T[] items) {}
 
     public static <T extends Comparable<T>> void selectionSort(T[] items) {}
