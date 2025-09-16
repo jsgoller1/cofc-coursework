@@ -1,8 +1,8 @@
 JAVA:=/opt/homebrew/opt/openjdk/bin/java
 JAVAC:=/opt/homebrew/opt/openjdk/bin/javac
-BIN_DIR:=bin/
+BIN_DIR:=bin
 
-.PHONY: 1_7 2_11 natural_mergesort
+.PHONY: 1_7 2_11 natural_mergesort sorting lab_4_undo_grocery_list
  
 clean:
 	reset
@@ -21,10 +21,18 @@ hello_world: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) BinarySearch
 
-sorting_algos: clean
-	$(JAVAC) $@/*.java -d $(BIN_DIR)
-	$(JAVA) -cp $(BIN_DIR) Sorter
+sorting: clean
+	$(JAVAC) algorithms/$@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) algorithms.sorting.Sorting
 
-natural_mergesort: clean
+searching: clean
+	$(JAVAC) algorithms/$@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) algorithms.searching.Searching
+
+lab_3_natural_mergesort: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) NaturalMerge
+
+lab_4_undo_grocery_list: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) $@.LabProgram
