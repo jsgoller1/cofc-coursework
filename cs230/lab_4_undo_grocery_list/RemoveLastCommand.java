@@ -11,6 +11,6 @@ public class RemoveLastCommand extends UndoCommand {
 
     @Override
     public void execute() {
-        this.sourceList.removeLast();
+        this.sourceList.remove(sourceList.size()-1);
     }
 }
