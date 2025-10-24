@@ -1,3 +1,5 @@
+package lab_2_binary_search;
+
 import java.util.*;
 
 // IntComparer inherits from Comparator<Integer> and so provides the

@@ -1,3 +1,5 @@
+package lab_2_binary_search;
+
 import java.util.*;
 
 public class Searcher<T> {

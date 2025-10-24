@@ -2,7 +2,11 @@ JAVA:=/opt/homebrew/opt/openjdk/bin/java
 JAVAC:=/opt/homebrew/opt/openjdk/bin/javac
 BIN_DIR:=bin
 
-.PHONY: 1_7 2_11 natural_mergesort sorting lab_4_undo_grocery_list lab_5_sorted_number_list
+.PHONY: 1_7 2_11 natural_mergesort sorting \
+lab_4_undo_grocery_list \
+lab_5_sorted_number_list \
+lab_6_course_gradebook_with_hashmap \
+lab_7_timeout_manager_with_pq
  
 clean:
 	reset
@@ -38,10 +42,13 @@ lab_3_natural_mergesort: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) NaturalMerge
 
-lab_4_undo_grocery_list: clean
+: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) $@.LabProgram
 
-lab_5_sorted_number_list: clean 
+lab_4_undo_grocery_list \
+lab_5_sorted_number_list \
+lab_6_course_gradebook_with_hashmap \
+lab_7_timeout_manager_with_pq: clean 
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) $@.LabProgram

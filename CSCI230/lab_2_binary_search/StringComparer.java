@@ -1,6 +1,8 @@
+package lab_2_binary_search;
+
 import java.util.*;
 
-// StringComparer inherits from Comparator<String> and so provides the 
+// StringComparer inherits from Comparator<String> and so provides the
 // ability to compare two String objects.
 public class StringComparer implements Comparator<String> {
 	@Override
