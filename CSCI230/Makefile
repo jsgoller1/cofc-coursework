@@ -2,11 +2,15 @@ JAVA:=/opt/homebrew/opt/openjdk/bin/java
 JAVAC:=/opt/homebrew/opt/openjdk/bin/javac
 BIN_DIR:=bin
 
-.PHONY: 1_7 2_11 natural_mergesort sorting \
+.PHONY: natural_mergesort sorting \
+lab_1_introduction \
+lab_2_binary_search \
+lab_3_natural_mergesort \
 lab_4_undo_grocery_list \
 lab_5_sorted_number_list \
 lab_6_course_gradebook_with_hashmap \
-lab_7_timeout_manager_with_pq
+lab_7_timeout_manager_with_pq \
+lab_8_bst_validity_checker
  
 clean:
 	reset
@@ -16,14 +20,6 @@ clean:
 hello_world: clean
 	$(JAVAC) $@.java
 	$(JAVA) Main
-
-1_7: clean
-	$(JAVAC) $@/*.java -d $(BIN_DIR)
-	$(JAVA) -cp $(BIN_DIR) IntroToDSELabs
-
-2_11: clean
-	$(JAVAC) $@/*.java -d $(BIN_DIR)
-	$(JAVA) -cp $(BIN_DIR) BinarySearch
 
 algorithms: clean
 	$(JAVAC) algorithms/*/*.java -d $(BIN_DIR)
@@ -37,18 +33,22 @@ searching: algorithms
 stacks heaps queues linked_lists: algorithms
 	$(JAVA) -cp $(BIN_DIR) algorithms.$@.Main
 
+lab_1_introduction: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) IntroToDSELabs
+
+lab_2_binary_search: clean
+	$(JAVAC) $@/*.java -d $(BIN_DIR)
+	$(JAVA) -cp $(BIN_DIR) BinarySearch
 
 lab_3_natural_mergesort: clean
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) NaturalMerge
 
-: clean
-	$(JAVAC) $@/*.java -d $(BIN_DIR)
-	$(JAVA) -cp $(BIN_DIR) $@.LabProgram
-
 lab_4_undo_grocery_list \
 lab_5_sorted_number_list \
 lab_6_course_gradebook_with_hashmap \
-lab_7_timeout_manager_with_pq: clean 
+lab_7_timeout_manager_with_pq \
+lab_8_bst_validity_checker: clean 
 	$(JAVAC) $@/*.java -d $(BIN_DIR)
 	$(JAVA) -cp $(BIN_DIR) $@.LabProgram
